@@ -46,6 +46,8 @@ the PDB file.
 
 #include "socket.h"
 #include <stdlib.h>
+
+int map_alpha3_to_amino_acid(char aa_string[]);
 int read_helical_dssp(int extend /*, int join*/)
 	{
 	int i,/*j,*/ lastresidue, helical_residues, residue_index, helix_id;
@@ -143,7 +145,7 @@ int read_helical_dssp(int extend /*, int join*/)
 
 			/* a lower case aacode indicates a Cystine bridge- DSSP labels each bridge
 				starting from 'a' */
-			if islower(aacode) aacode = 'C';
+			if (islower(aacode)) aacode = 'C';
 
 			helix_residue_aacode[residue_index] = map_alpha_to_amino_acid[aacode-'A'];
 			lastresidue = i;
@@ -460,7 +462,7 @@ void pre_parse_dssp(int *helix_index, int helix_start[], char helix_start_iCode[
 
 		/* is it a helical (DSSP) residue? */
 
-		if ((ch == 'H'))
+		if (ch == 'H')
 			{
 			if (!is_helical)
 				{
@@ -767,8 +769,9 @@ int read_helical_pdb()
 
 
 				/* XXX printf("&(heterogen3[n_heterogens]) = %d\nheterogen3[n_heterogens]=%d\n",&(heterogen3[n_heterogens]),heterogen3[n_heterogens]);
-printf("heterogen3[0] = \"%s\"; *(heterogen3[0]) = \"%c\"\n",heterogen3[0],*(heterogen3[0]));
-/* *(heterogen3[0]) = 'F'; */
+				   printf("heterogen3[0] = \"%s\"; *(heterogen3[0]) = \"%c\"\n",heterogen3[0],*(heterogen3[0]));
+			       *(heterogen3[0]) = 'F'; 
+				*/
 				strcpy(heterogen3[n_heterogens],resName); /* pointers */
 
 				printf("%s added to list; treating as amino acid (%d), %s\n",

@@ -10,7 +10,7 @@ WORKINC         = $(WORKDIR)
 
 LIBS            = -lm
 CC		= cc
-CFLAGS		= $(INCLUDES) $(LIBS)
+CFLAGS		= $(INCLUDES)
 #WARNINGS	= -woff all
 
 OBJECTS	= socket.o daisies.o duplicat.o geometry.o knobs.o order.o read.o register.o statchar.o

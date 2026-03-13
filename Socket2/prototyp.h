@@ -133,7 +133,7 @@ float measure_centre_distance(int res1, int res2);
 	hole into which it fits; this is how types 1 and 3 ('knobs across
 	holes') are distinguished from types 2 and 4 ('knobs-into-holes'); the
 	latter have the result less than or equal to the insertion-cutoff (set
-	at 7.0Å) */
+	at 7.0Ã…) */
 
 float measure_k_end_h_CA(int knobid);
 
@@ -427,7 +427,9 @@ int check_daisy_chain(int thisknob, int order, int daisy_chain[], int direction)
 	have more than one layer of complementary knobs, if they are 2-stranded
 	coiled coils); the order of each coiled coil is determined */
 
-int determine_order(/*int residue_index*/);
+int determine_order(int residue_index);
+
+void statchar(void);
 
 /* define_ras_coils: if a RasMol file is being created, this function defines
 	the set of coiled coils (the union of all coiled coils which arent

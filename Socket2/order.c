@@ -33,7 +33,7 @@ the PDB file.
 #include "socket.h"
 #include <string.h>
 #include <stdlib.h>
-int determine_order(/*int residue_index*/)
+int determine_order(int residue_index)
 	{
 	/* determines the oligomerization state of the coiled coils */
 	int i, j, k, l, m, helix[MAX_DAISIES];
